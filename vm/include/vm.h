@@ -13,13 +13,13 @@ class krillvm {
   i32 pc = 100;
   i32 sp = 0;
   vector<i32> memory;
-  i32 type = 0;
-  i32 data = 0;
+  i32 typ = 0;
+  i32 dat = 0;
   i32 running = 1;
 
   // private
-  i32 gettype(i32 token);
-  i32 getdata(i32 token);
+  i32 gettype(i32 instruction);
+  i32 getdata(i32 instruction);
   void fetch();
   void decode();
   void execute();

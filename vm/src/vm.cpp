@@ -36,14 +36,14 @@ void krillvm::fetch() {
 };
 
 void krillvm::decode() {
-  type = gettype(memory[pc]);
-  data = getdata(memory[pc]);
+  typ = gettype(memory[pc]);
+  dat = getdata(memory[pc]);
 };
 
 void krillvm::execute() {
-  if(type == 0 || type == 2) {
+  if(typ == 0 || typ == 2) {
     sp++;
-    memory[sp] = data;
+    memory[sp] = dat;
   }
   else {
     primitive();
@@ -51,7 +51,7 @@ void krillvm::execute() {
 };
 
 void krillvm::primitive() {
-  switch(data) {
+  switch(dat) {
     case 0: { // break
       cout << "break" << endl;
       running = 0;
@@ -60,7 +60,7 @@ void krillvm::primitive() {
     
     case 1: { // add
       cout << "add " << memory[sp - 1] << " " << memory[sp] << endl;
-      memory[sp - 1] = memory[sp - 1] + memory[sp];
+      memory[sp - 1] += memory[sp];
       sp--;
       break;
     };

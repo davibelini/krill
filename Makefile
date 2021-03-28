@@ -1,7 +1,7 @@
 all: krill
 
 krill: vm.o main.o
-		g++ vm.o main.o -o krill
+		g++ -s vm.o main.o -o krill.asm
 
 main.o: vm/src/main.cpp
 		g++ -c vm/src/main.cpp
